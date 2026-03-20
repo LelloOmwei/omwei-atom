@@ -1,11 +1,11 @@
 [package]
 name = "omwei-atom"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["32BSA Contributors"]
 license = "MIT OR Apache-2.0"
 description = "Core implementation of the OMWEI 32B Semantic Atom (32BSA) standard. The universal grammar for Agentic AI and Industrial IoT Integrity."
-repository = "https://github.com/LelloOmwei/32B-Semantic-Atom"
+repository = "https://github.com/LelloOmwei/omwei-atom"
 homepage = "https://www.equinibrium.eu"
 documentation = "https://docs.rs/omwei-atom"
 readme = "README.md"

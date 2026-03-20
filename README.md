@@ -25,7 +25,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-omwei-atom = "0.1.0"
+omwei-atom = "0.1.1"
 ```
 
 ## Usage
@@ -63,7 +63,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Version
 
-Current version: **0.1.0** (Initial Release)
+Current version: **0.1.1**
 
 ---
 
