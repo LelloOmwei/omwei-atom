@@ -75,7 +75,7 @@ fn process_sensor_data(global_id: u32, payload: [u8; 28]) {
 ### Embedded Targets
 ```toml
 [dependencies.omwei-atom]
-version = "0.1.1"
+version = "0.1.2"
 default-features = false
 features = ["pqc"]  # For bare-metal environments
 ```

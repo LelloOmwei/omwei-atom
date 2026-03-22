@@ -97,7 +97,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-omwei-atom = "0.1.1"
+omwei-atom = "0.1.2"
 ```
 
 ### Industrial-Grade Implementation
@@ -222,7 +222,7 @@ This is the L0 layer for:
 - **Medical Device Communication**
 - **Critical Infrastructure Monitoring**
 
-**Version:** `0.1.1` - Industrial Release Candidate
+**Version:** `0.1.2` - Industrial Release
 
 ---
 

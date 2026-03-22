@@ -13,7 +13,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-TARGET_VERSION="0.1.1"
+TARGET_VERSION="0.1.2"
 CRATE_NAME="omwei-atom"
 
 echo -e "${BLUE}🏭 OMWEI 32BSA Trust Hierarchy - Production Release${NC}"
