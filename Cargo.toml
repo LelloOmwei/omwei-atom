@@ -2,15 +2,15 @@
 name = "omwei-atom"
 version = "0.1.1"
 edition = "2021"
-authors = ["32BSA Contributors"]
+authors = ["OMWEI Project <maintainers@omwei.org>"]
 license = "MIT OR Apache-2.0"
-description = "Core implementation of the OMWEI 32B Semantic Atom (32BSA) standard. The universal grammar for Agentic AI and Industrial IoT Integrity."
+description = "Core implementation of OMWEI 32B Semantic Atom (32BSA) standard. Hardware-native integrity for Agentic AI."
 repository = "https://github.com/LelloOmwei/omwei-atom"
 homepage = "https://www.equinibrium.eu"
 documentation = "https://docs.rs/omwei-atom"
 readme = "README.md"
-keywords = ["iot", "semantic", "atom", "32bsa", "industry4"]
-categories = ["data-structures", "embedded", "network-programming", "science"]
+keywords = ["32BSA", "OMWEI", "SincereData", "AgenticAI", "SiliconCatalyst"]
+categories = ["embedded", "no-std", "cryptography", "wasm", "aerospace"]
 rust-version = "1.70"
 
 [features]
@@ -28,6 +28,7 @@ sha2 = { version = "0.10", optional = true, default-features = false }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 sha2 = "0.10"
+rand = "0.8"
 
 [workspace]
 
