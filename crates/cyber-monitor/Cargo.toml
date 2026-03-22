@@ -1,0 +1,60 @@
+[package]
+name = "cyber-monitor"
+version = "0.2.0"
+edition = "2021"
+authors = ["OMWEI Project <maintainers@omwei.org>"]
+license = "MIT OR Apache-2.0"
+description = "Cyber Monitor - Real-time telemetry and UI with Sincerity Bit awareness for OMWEI 32BSA ecosystem."
+repository = "https://github.com/LelloOmwei/omwei-atom"
+homepage = "https://www.equinibrium.eu"
+documentation = "https://docs.rs/cyber-monitor"
+readme = "README.md"
+keywords = ["CyberMonitor", "OMWEI", "32BSA", "Telemetry", "SincerityUI"]
+categories = ["web-programming", "visualization"]
+rust-version = "1.70"
+
+[dependencies]
+# Core OMWEI 32BSA Trust Hierarchy
+omwei-atom = { workspace = true }
+
+# Async runtime
+tokio = { workspace = true }
+
+# Web framework (optional)
+axum = { version = "0.7", optional = true }
+tower = { version = "0.4", optional = true }
+tower-http = { version = "0.5", optional = true }
+
+# Serialization
+serde = { workspace = true, optional = true }
+serde_json = { workspace = true, optional = true }
+
+# Error handling
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+
+# Logging
+log = { workspace = true }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+# Utilities
+uuid = { workspace = true }
+chrono = { workspace = true }
+
+# HTTP client
+reqwest = { workspace = true }
+
+# WebSocket support (optional)
+tokio-tungstenite = { version = "0.20", optional = true }
+
+[features]
+default = ["std", "web-ui"]
+std = ["omwei-atom/std"]
+serde = ["dep:serde", "dep:serde_json"]
+web-ui = ["axum", "tower", "tower-http"]
+pqc = ["omwei-atom/pqc"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]

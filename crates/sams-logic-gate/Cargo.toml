@@ -1,0 +1,46 @@
+[package]
+name = "sams-logic-gate"
+version = "0.2.0"
+edition = "2021"
+authors = ["OMWEI Project <maintainers@omwei.org>"]
+license = "MIT OR Apache-2.0"
+description = "SAMS Logic Gate - Hardware-level validation and filtering with zero-latency trust checking for OMWEI 32BSA ecosystem."
+repository = "https://github.com/LelloOmwei/omwei-atom"
+homepage = "https://www.equinibrium.eu"
+documentation = "https://docs.rs/sams-logic-gate"
+readme = "README.md"
+keywords = ["SAMS", "LogicGate", "OMWEI", "32BSA", "HardwareValidation"]
+categories = ["embedded", "no-std", "cryptography", "hardware-support", "aerospace"]
+rust-version = "1.70"
+
+[dependencies]
+# Core OMWEI 32BSA Trust Hierarchy
+omwei-atom = { workspace = true }
+
+# Async runtime
+tokio = { workspace = true }
+
+# Serialization
+serde = { workspace = true, optional = true }
+serde_json = { workspace = true, optional = true }
+
+# Error handling
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+
+# Logging
+log = { workspace = true }
+
+# Utilities
+uuid = { workspace = true }
+chrono = { workspace = true }
+
+[features]
+default = ["std"]
+std = ["omwei-atom/std"]
+serde = ["dep:serde", "dep:serde_json"]
+pqc = ["omwei-atom/pqc"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]

@@ -1,0 +1,58 @@
+[workspace]
+members = [
+    "crates/*",
+]
+resolver = "2"
+
+[workspace.dependencies]
+# Core OMWEI 32BSA Trust Hierarchy
+omwei-atom = { version = "0.1.2", path = "./crates/omwei-atom" }
+
+# SAMS Ecosystem Components
+sams-logic-gate = { version = "0.2.0", path = "./crates/sams-logic-gate" }
+sams-blackbox = { version = "0.2.0", path = "./crates/sams-blackbox" }
+sams-ghost-node = { version = "0.2.0", path = "./crates/sams-ghost-node" }
+cyber-monitor = { version = "0.2.0", path = "./crates/cyber-monitor" }
+sams-industrial-ecosystem = { version = "0.2.0", path = "./crates/sams-industrial-ecosystem" }
+
+# Async runtime
+tokio = { version = "1.0", features = ["full"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0" }
+
+# Cryptography
+sha2 = { version = "0.10", default-features = false }
+
+# Error handling
+anyhow = { version = "1.0" }
+thiserror = { version = "1.0" }
+
+# Logging
+log = { version = "0.4" }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+# Utilities
+uuid = { version = "1.0", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# HTTP client
+reqwest = { version = "0.11", features = ["json"] }
+
+# Cryptography (PQC)
+pqcrypto-kyber = "0.7"
+pqcrypto-dilithium = "0.5"
+
+# Hardware acceleration
+criterion = "0.5"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+opt-level = "z"
+
+[profile.bench]
+debug = true
