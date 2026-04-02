@@ -1,6 +1,6 @@
 [package]
 name = "omwei-atom"
-version = "0.1.2"
+version = "0.1.4"
 edition = "2021"
 authors = ["OMWEI Project <maintainers@omwei.org>"]
 license = "MIT OR Apache-2.0"
@@ -33,5 +33,8 @@ rand = "0.8"
 [workspace]
 
 [package.metadata.docs.rs]
-all-features = true
+all-features = false
+features = ["std"]
 rustdoc-args = ["--cfg", "docsrs"]
+# Target configuration for docs.rs to ensure compatibility
+targets = ["x86_64-unknown-linux-gnu"]
