@@ -2,7 +2,7 @@
 
 ## Overview
 
-The OMWEI 32-bit Semantic Atom (32BSA) Trust Hierarchy is a hardware-native protocol that provides zero-latency trust level determination based on a single bit in the GlobalID. This system is designed for high-performance embedded systems and real-time IoT applications.
+The OMWEI 32-bit execution data format (32BSA) Trust Hierarchy is a hardware-native protocol that provides zero-latency execution integrity level determination based on a single bit in the GlobalID. This system is designed for high-performance embedded systems and real-time IoT applications.
 
 ## Architecture
 
@@ -22,7 +22,7 @@ OMWEI 32BSA ATOM FLOW
        |                                                                     |
   [ LOCAL LOGS ONLY ]                                                  [ SAMS GLOBAL AUDIT ]
        |                                                                     |
-  [ ADVISORY WARNING ]                                                 [ AX BUFFER: SINCERE ]
+  [ ADVISORY WARNING ]                                                 [ AX BUFFER: VERIFIED ]
 ```
 
 ### Technical Implementation Flow
@@ -80,7 +80,7 @@ The Trust Hierarchy divides the 32-bit GlobalID space into two distinct regions:
 
 #### 1. Managed Space (Bit 31 = 0)
 - **Range:** `0x00000000` to `0x7FFFFFFF`
-- **Trust Level:** Sincere
+- **Trust Level:** Verified
 - **Verification:** Post-Quantum Cryptography (PQC) signature required
 - **Use Case:** Production systems requiring global trust guarantees
 - **Issued by:** OMWEI authority
@@ -223,7 +223,7 @@ pub struct Atom {
 
 | Bit 31 | Range | Trust Level | Verification |
 |--------|-------|-------------|--------------|
-| 0 | 0x00000000 - 0x7FFFFFFF | Managed (Sincere) | PQC Required |
+| 0 | 0x00000000 - 0x7FFFFFFF | Managed (Verified) | PQC Required |
 | 1 | 0x80000000 - 0xFFFFFFFF | Community (Unverified) | None |
 
 ## Implementation Guidelines

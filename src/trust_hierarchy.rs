@@ -1,14 +1,14 @@
 /*!
 # OMWEI 32BSA Trust Hierarchy Implementation
 
-This module implements the Trust Hierarchy system for the OMWEI 32-bit Semantic Atom (32BSA) protocol.
-The Trust Hierarchy is based on Bit 31 (MSB) of the GlobalID, providing zero-latency trust level determination.
+This module implements the Trust Hierarchy system for the OMWEI 32-bit execution data format (32BSA) protocol.
+The Trust Hierarchy is based on Bit 31 (MSB) of the GlobalID, providing zero-latency execution integrity level determination.
 
 ## Trust Levels:
 
 ### Managed Space (Bit 31 = 0)
 - Range: 0x00000000 to 0x7FFFFFFF
-- IDs are "Sincere" and issued by OMWEI
+- IDs are issued by OMWEI authority
 - MUST be verified via PQC signature
 - Global trust guarantee
 
@@ -45,7 +45,7 @@ const COMMUNITY_SPACE_MAX: u32 = 0xFFFFFFFF;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 #[repr(u8)]
 pub enum TrustLevel {
-    /// Managed Space - Sincere IDs requiring PQC verification
+    /// Managed Space - IDs requiring PQC verification
     Managed = 0,
     /// Community Space - Unverified experimental IDs
     Community = 1,
@@ -54,7 +54,7 @@ pub enum TrustLevel {
 impl fmt::Display for TrustLevel {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            TrustLevel::Managed => write!(f, "Managed (Sincere)"),
+            TrustLevel::Managed => write!(f, "Managed (Verified)"),
             TrustLevel::Community => write!(f, "Community (Unverified)"),
         }
     }

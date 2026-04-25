@@ -4,12 +4,12 @@ version = "0.1.4"
 edition = "2021"
 authors = ["OMWEI Project <maintainers@omwei.org>"]
 license = "MIT OR Apache-2.0"
-description = "Core implementation of OMWEI 32B Semantic Atom (32BSA) standard. Hardware-native integrity for Agentic AI."
+description = "Reference implementation of OMWEI execution integrity format and 32BSA data structure."
 repository = "https://github.com/LelloOmwei/omwei-atom"
 homepage = "https://www.equinibrium.eu"
 documentation = "https://docs.rs/omwei-atom"
 readme = "README.md"
-keywords = ["32BSA", "OMWEI", "SincereData", "AgenticAI", "SiliconCatalyst"]
+keywords = ["32BSA", "OMWEI", "execution-integrity", "data-format", "embedded"]
 categories = ["embedded", "no-std", "cryptography", "wasm", "aerospace"]
 rust-version = "1.70"
 

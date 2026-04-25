@@ -1,19 +1,19 @@
 /*!
 # OMWEI 32BSA Trust Hierarchy Demonstration
 
-This example demonstrates the Trust Hierarchy system for OMWEI 32-bit Semantic Atoms.
+This example demonstrates the Trust Hierarchy system for OMWEI 32-bit execution data format.
 It shows how to:
 
-1. Determine trust levels from Global IDs
-2. Validate atoms according to trust rules
+1. Determine execution integrity levels from Global IDs
+2. Validate atoms according to execution integrity rules
 3. Generate sparse IDs for Managed Space
 4. Simulate AX Buffer Filter operations
 
 ## Key Concepts:
 
-- **Managed Space (Bit 31 = 0):** 0x00000000 to 0x7FFFFFFF - Sincere IDs requiring PQC verification
+- **Managed Space (Bit 31 = 0):** 0x00000000 to 0x7FFFFFFF - IDs requiring PQC verification
 - **Community Space (Bit 31 = 1):** 0x80000000 to 0xFFFFFFFF - Unverified experimental IDs
-- **Zero Latency:** Single bit-mask operation for trust determination
+- **Zero Latency:** Single bit-mask operation for execution integrity determination
 */
 
 use omwei_atom::trust_hierarchy::{

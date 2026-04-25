@@ -1,15 +1,15 @@
 /*!
-# OMWEI 32B Semantic Atom
+# OMWEI Atom
 
-**Hardware-native integrity for Agentic AI and Industrial IoT.** The L0 layer defining the next decade of Silicon Sincerity through mathematical certainty and zero-latency trust determination.
+Reference implementation of the OMWEI execution integrity format.
 
-## Mission
+## Overview
 
-The OMWEI 32-bit Semantic Atom (32BSA) standard provides the universal grammar for Agentic AI systems, establishing hardware-enforced trust hierarchies through single-bit operations. This is not a utility library—it is the foundational protocol for silicon-level data integrity.
+OMWEI defines a hardware-oriented execution integrity signal for verifiable system behavior. This library provides the software-level reference implementation of the OMWEI Atom format, which represents structured execution data using the 32BSA (32-bit execution data format) concept.
 
 ## Performance Metrics
 
-**Zero-Latency Trust Determination:**
+**Zero-Latency Execution Integrity Determination:**
 - **Latency:** `8.86 nanoseconds` per operation
 - **Throughput:** `113 million operations/second`
 - **Memory:** Zero allocation, stack-only execution
@@ -23,7 +23,7 @@ use omwei_atom::trust_hierarchy::{get_trust_level, validate_atom, Atom, TrustLev
 fn process_sensor_data(global_id: u32, payload: [u8; 28]) {
     let atom = Atom::new(global_id, payload);
 
-    // Zero-latency trust determination
+    // Zero-latency execution integrity determination
     let trust_level = get_trust_level(global_id);
 
     match trust_level {
@@ -31,16 +31,16 @@ fn process_sensor_data(global_id: u32, payload: [u8; 28]) {
             // Production-grade processing with PQC verification
             match validate_atom(&atom) {
                 ValidationResult::Trusted => {
-                    println!("Trusted atom stored");
+                    println!("Managed atom: Execution integrity verified");
                 }
                 ValidationResult::InvalidSignature => {
-                    println!("Security alert: Invalid signature");
+                    println!("Security alert: Execution integrity failure");
                 }
                 _ => unreachable!(),
             }
         }
         TrustLevel::Community => {
-            println!("Community atom: No global trust");
+            println!("Community atom: No execution integrity guarantees");
         }
     }
 }
@@ -58,7 +58,7 @@ fn process_sensor_data(global_id: u32, payload: [u8; 28]) {
 
 | Space | Bit 31 | Range | Trust Level | Verification |
 |-------|---------|-------|-------------|--------------|
-| **Managed** | `0` | `0x00000000` - `0x7FFFFFFF` | **Sincere** | PQC Signature Required |
+| **Managed** | `0` | `0x00000000` - `0x7FFFFFFF` | **Verified** | PQC Signature Required |
 | **Community** | `1` | `0x80000000` - `0xFFFFFFFF` | **Unverified** | None |
 
 ## Modules
@@ -131,7 +131,7 @@ pub const TAG_METEOROLOGICAL: u32 = 0x000002;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[repr(C)]
-pub struct SemanticAtom {
+pub struct ExecutionAtom {
     pub entity_id: u32,
     pub telemetry_info: u32,
     pub predicate_id: u32,
@@ -141,7 +141,7 @@ pub struct SemanticAtom {
     pub pqc_anchor: u32,
 }
 
-impl SemanticAtom {
+impl ExecutionAtom {
     #[inline]
     pub fn new(
         entity_id: u32,
